@@ -5,7 +5,7 @@ import { CurrentPageReference } from 'lightning/navigation';
 
 export default class AccountCustomList extends LightningElement {
     
-    //pageRef should be used for registering event
+    //pageRef should be used for registerListener
     @wire(CurrentPageReference) pageRef;
     @track paymentData;
     @track listViewfilter;
