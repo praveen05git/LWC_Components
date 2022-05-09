@@ -1,0 +1,9 @@
+<template>
+    <ul class="nav-bar slds-list_horizontal slds-has-block-links_space slds-p-vertical_large">
+        <template for:each={navigationLinks} for:item="item">
+            <li key={item.link} class={item.class}>
+                <a href={item.link} data-href={item.link} onclick={navigateToPage} title={item.label}>{item.label}</a>
+            </li>
+        </template>
+    </ul>
+</template>

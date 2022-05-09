@@ -1,0 +1,30 @@
+.nav-bar {
+    margin: auto;
+    background-color: #f7f7f7;
+    padding-right: 102px;
+    padding-left: 20px;
+    max-width: 1440px;
+}
+
+.nav-bar li {
+    padding-right: 20px;
+}
+
+.nav-bar li a {
+    color: #80868b;
+    font-size: 14px;
+    padding: 0 0 10px 0;
+}
+
+.nav-bar li.active a {
+    border-bottom: 3px solid #1a73e8;
+    color: #202124;
+}
+
+@media all and (max-width: 980px) {
+    .nav-bar {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Custom Navigation Bar</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>   
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="linkLabel01" type="String" label="1 Link Label"/>
+            <property name="pageApiName01" type="String" label="1 Page API Name" description="Enter page API name: Profile__c"/>
+            <property name="linkLabel02" type="String" label="2 Link Label"/>
+            <property name="pageApiName02" type="String" label="2 Page API Name" description="Enter page API name: Profile__c"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
