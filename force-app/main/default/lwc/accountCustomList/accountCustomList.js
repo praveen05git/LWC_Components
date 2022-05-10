@@ -1,7 +1,4 @@
 import { LightningElement, wire, track } from 'lwc';
-import CURRENT_USER_ACCOUNTID from '@salesforce/schema/User.AccountId';
-import CURRENT_USER_ID from '@salesforce/user/Id';
-import { getRecord } from 'lightning/uiRecordApi';
 import getAccounts from '@salesforce/apex/AccountsController.getAllAccounts';
 
 export default class AccountCustomList extends LightningElement {
