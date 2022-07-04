@@ -1,13 +1,17 @@
 import { LightningElement, wire, track } from 'lwc';
+import CURRENT_USER_ACCOUNTID from '@salesforce/schema/User.AccountId';
+import CURRENT_USER_ID from '@salesforce/user/Id';
+import { getRecord } from 'lightning/uiRecordApi';
 import getAccounts from '@salesforce/apex/AccountsController.getAllAccounts';
 
 export default class AccountCustomList extends LightningElement {
 
     baseUrl = '/s/';
-    @track accountData;
+    accountData = [];
     @track sortBy;
     @track defaultSortDirection = 'asc';
     @track sortDirection = 'asc';
+    dataForList = [];
     @track listViewColumns = [
         {
             label: 'Account Name',
@@ -31,7 +35,7 @@ export default class AccountCustomList extends LightningElement {
             label: 'Annual Revenue',
             fieldName: 'AnnualRevenue',
             type: 'currency',
-            cellAttributes:{alignment:'left'},
+            cellAttributes: { alignment: 'left' },
             wrapText: true,
             sortable: true
         },
@@ -59,6 +63,7 @@ export default class AccountCustomList extends LightningElement {
                 nameUrl = this.baseUrl + 'account' + `/${row.Id}`;
                 return { ...row, nameUrl };
             });
+            this.dataForList = this.accountData;
         } else if (error) {
             console.log('Table Error: ' + error.body.message);
         }
@@ -84,5 +89,18 @@ export default class AccountCustomList extends LightningElement {
             b = key(b);
             return reverse * ((a > b) - (b > a));
         };
+    }
+
+    searchTable(event) {
+        let searchFilter = event.target.value.toUpperCase();
+        let tempArr = [];
+        let i;
+        this.accountData = this.dataForList;
+        for (i = 0; i < this.accountData.length; i++) {
+            if ((this.accountData[i].nameUrl && this.accountData[i].nameUrl.toUpperCase().indexOf(searchFilter) != -1) || (this.accountData[i].Industry && this.accountData[i].Industry.toUpperCase().indexOf(searchFilter) != -1)) {
+                tempArr.push(this.accountData[i]);
+            }
+        }
+        this.accountData = tempArr;
     }
 }
