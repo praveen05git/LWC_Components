@@ -17,7 +17,6 @@ export default class ListViewFilterCustom extends LightningElement {
 
     handleListViewChange(event) {
         this.listViewfilter = event.detail.value;
-        console.log('pk fireevent '+this.listViewfilter);
 
         fireEvent(this.pageRef,"filterevent",this.listViewfilter);
     }
