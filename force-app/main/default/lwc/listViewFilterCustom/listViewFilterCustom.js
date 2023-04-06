@@ -9,15 +9,15 @@ export default class ListViewFilterCustom extends LightningElement {
 
     get listViewOptions() {
         return [
-                 { label: 'Draft', value: 'Draft' },
-                 { label: 'Processed', value: 'Processed' },
-                 { label: 'All Payments', value: 'allPayments' },
-               ];
+            { label: 'Draft', value: 'Draft' },
+            { label: 'Processed', value: 'Processed' },
+            { label: 'All Payments', value: 'allPayments' },
+        ];
     }
 
     handleListViewChange(event) {
         this.listViewfilter = event.detail.value;
 
-        fireEvent(this.pageRef,"filterevent",this.listViewfilter);
+        fireEvent(this.pageRef, "filterevent", this.listViewfilter);
     }
 }

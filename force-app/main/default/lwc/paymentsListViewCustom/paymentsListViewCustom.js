@@ -4,7 +4,7 @@ import { registerListener, unregisterAllListeners } from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation';
 
 export default class AccountCustomList extends LightningElement {
-    
+
     //pageRef should be used for registerListener
     @wire(CurrentPageReference) pageRef;
     @track paymentData;
@@ -38,7 +38,7 @@ export default class AccountCustomList extends LightningElement {
             label: 'Amount',
             fieldName: 'Amount',
             type: 'currency',
-            cellAttributes:{alignment:'left'},
+            cellAttributes: { alignment: 'left' },
             wrapText: true,
             sortable: true
         }
@@ -49,7 +49,7 @@ export default class AccountCustomList extends LightningElement {
     }
 
     listenEvent() {
-        registerListener("filterevent",this.captureEvent,this);
+        registerListener("filterevent", this.captureEvent, this);
     }
 
     disconnectedCallback() {
@@ -60,7 +60,7 @@ export default class AccountCustomList extends LightningElement {
         this.listViewfilter = listViewfilter;
     }
 
-    @wire(getPayments, {filterStatus: '$listViewfilter'})
+    @wire(getPayments, { filterStatus: '$listViewfilter' })
     allPayments({ error, data }) {
         if (data) {
             this.paymentData = data;
