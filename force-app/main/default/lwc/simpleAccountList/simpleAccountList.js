@@ -34,14 +34,6 @@ export default class SimpleAccountList extends LightningElement {
     @wire(getAccounts)
     allAccounts({ error, data }) {
         if (data) {
-            /*
-            let nameUrl;
-            this.accountData = data.map(row => {
-                nameUrl = this.baseUrl + 'account' + `/${row.Id}`;
-                return { ...row, nameUrl };
-            });
-            this.dataForList = this.accountData;
-            */
             this.accountData = data;
         } else if (error) {
             console.log('Table Error: ' + error.body.message);

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>reCAPTCHA demo: Simple page</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdWJIcpAAAAAC_Pi3zZVjY3npC9Va1mbcvWv6RZ"></script>
+ </head>
+ <body>
+ <input type="hidden" name="recaptcha_response" id="recaptchaResponse"/>
+ <script type="text/javascript">
+ 
+ 
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdWJIcpAAAAAC_Pi3zZVjY3npC9Va1mbcvWv6RZ', {action: 'submit'}).then(function(token) {
+            recaptchaResponse.value = token;
+            if (token == "") {
+                console.log('pk in execute');
+                //replace YOURDOMAIN with your SFDC Domain (Eg: https://testorg.lightning.force.com
+                //parent.postMessage({ action: "getCAPCHA", callCAPTCHAResponse : "NOK"}, "https://dev--fre.lightning.force.com");
+            } else {
+                //parent.postMessage({ action: "getCAPCHA", callCAPTCHAResponse : token}, "https://dev--fre.lightning.force.com");
+            }
+        });
+    })
+ </script>
+ </body>
+ </html>
